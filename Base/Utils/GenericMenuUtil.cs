@@ -11,7 +11,7 @@ namespace AV.Hierarchy
     {
         private static readonly Type menuItemType = typeof(GenericMenu).GetNestedType("MenuItem", BindingFlags.NonPublic | BindingFlags.Instance);
 
-#if UNITY_2021_1_OR_NEWER
+#if UNITY_2019_4_OR_NEWER
         private static readonly FieldInfo menuItemsField = typeof(GenericMenu).GetField("m_MenuItems", BindingFlags.NonPublic | BindingFlags.Instance);
 #else
         private static readonly FieldInfo menuItemsField = typeof(GenericMenu).GetField("menuItems", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -21,7 +21,7 @@ namespace AV.Hierarchy
         private static readonly FieldInfo menuItemFunc = menuItemType.GetField("func", BindingFlags.Public | BindingFlags.Instance);
         private static readonly FieldInfo menuItemFunc2 = menuItemType.GetField("func2", BindingFlags.Public | BindingFlags.Instance);
 
-#if UNITY_2021_1_OR_NEWER
+#if UNITY_2019_4_OR_NEWER
         public static IList GetItems(GenericMenu menu)
         {
             return (IList)menuItemsField.GetValue(menu);
